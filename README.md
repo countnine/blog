@@ -47,8 +47,24 @@ git push
 | `title`, `tagline`, `description` | 사이트 제목/부제/소개 |
 | `avatar` | 사이드바 프로필 이미지 경로 |
 | `baseurl` | `/blog` (프로젝트 리포이기 때문) |
-| `comments.provider` | 댓글 기능 (giscus 권장, 기본은 꺼짐) |
-| `analytics` | 방문 통계 (Google Analytics 등) |
+| `comments.provider` | 댓글 기능 — giscus (GitHub Discussions 연동) |
+| `analytics.goatcounter.id` | 방문 통계 — GoatCounter 코드 `countnine` |
+| `pageviews.provider` | 글마다 조회수 표시 (goatcounter) |
+
+### 댓글 (giscus)
+
+`countnine/blog` 의 Discussions **Announcements** 카테고리에 글 URL 별로 스레드가 자동 생성됩니다.
+방문자는 GitHub 계정으로 로그인해 댓글을 답니다. 댓글 관리는 Discussions 탭에서 하면 됩니다.
+
+### 방문 통계 (GoatCounter)
+
+대시보드: <https://countnine.goatcounter.com>
+
+본인 방문을 통계에서 빼려면 브라우저 콘솔에서 아래를 한 번 실행합니다.
+
+```js
+localStorage.setItem('skipgc', 't')
+```
 
 ## 로컬 미리보기 (선택)
 
