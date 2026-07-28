@@ -1,39 +1,62 @@
-# Chirpy Starter
+# blog
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+[Jekyll](https://jekyllrb.com/) + [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 테마로 만든 블로그.
+GitHub Pages 에서 무료로 호스팅됩니다.
 
-A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirpy] Jekyll theme. Get up and running in minutes with all critical files pre-configured.
+- 사이트: <https://countnine.github.io/blog/>
+- 배포: `main` 브랜치에 푸시하면 `.github/workflows/pages-deploy.yml` 이 자동으로 빌드·배포 (약 1~2분)
 
-## Why This Starter Exists
+## 글 쓰기
 
-When installing Chirpy through [RubyGems.org][gem], Jekyll can only read a subset of theme files (`_data`, `_layouts`, `_includes`, `_sass`, `assets`) and limited `_config.yml` options from the gem. As a result, users cannot enjoy the full out-of-the-box experience that Chirpy offers.
+`_posts/YYYY-MM-DD-제목.md` 파일을 만들고 머리말을 넣습니다.
 
-To unlock all features, the following files must be present in your Jekyll site:
-
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+```yaml
+---
+title: 글 제목
+date: 2026-07-28 10:00:00 +0900
+categories: [대분류, 소분류]
+tags: [태그1, 태그2]
+---
 ```
 
-This starter bundles those files from the latest **Chirpy** release along with a [CD][CD] workflow, so you can start writing immediately.
+그다음 커밋 & 푸시:
 
-## Usage
+```bash
+git add .
+git commit -m "post: 글 제목"
+git push
+```
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+> 미래 시각으로 `date` 를 적으면 그 시각까지 사이트에 나오지 않습니다.
 
-## Contributing
+## 이미지
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+`assets/img/` 에 넣고 `![설명](/assets/img/파일명.png)` 으로 참조합니다.
+`baseurl` 이 `/blog` 이므로 경로 앞에 `/blog` 를 직접 붙이지 마세요 — Jekyll 이 알아서 처리합니다.
 
-## License
+## 설정
 
-This work is published under [MIT][mit] License.
+주요 항목은 모두 `_config.yml` 에 있습니다.
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+| 항목 | 설명 |
+| --- | --- |
+| `title`, `tagline`, `description` | 사이트 제목/부제/소개 |
+| `avatar` | 사이드바 프로필 이미지 경로 |
+| `baseurl` | `/blog` (프로젝트 리포이기 때문) |
+| `comments.provider` | 댓글 기능 (giscus 권장, 기본은 꺼짐) |
+| `analytics` | 방문 통계 (Google Analytics 등) |
+
+## 로컬 미리보기 (선택)
+
+로컬에 Ruby 를 설치하지 않아도 배포는 되지만, 미리 보고 싶다면 Docker 로:
+
+```bash
+docker run --rm -it -v "${PWD}:/srv/jekyll" -p 4000:4000 jekyll/jekyll:4 \
+  bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0"
+```
+
+<http://localhost:4000/blog/> 에서 확인할 수 있습니다.
+
+## 라이선스
+
+테마는 [MIT](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE) 라이선스를 따릅니다.
