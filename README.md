@@ -8,7 +8,11 @@ GitHub Pages 에서 무료로 호스팅됩니다.
 
 ## 글 쓰기
 
-`_posts/YYYY-MM-DD-제목.md` 파일을 만들고 머리말을 넣습니다.
+`_posts/YYYY-MM-DD-slug.md` 파일을 만들고 머리말을 넣습니다.
+
+> **파일명이 곧 URL 입니다.** 제목은 한글로 써도 되지만 파일명은 영문 소문자·하이픈으로 쓰세요.
+> `2026-07-28-blog-start.md` → `https://countnine.github.io/blog/posts/blog-start/`
+> 파일명에 한글을 쓰면 URL 이 퍼센트 인코딩되어 지저분해집니다.
 
 ```yaml
 ---

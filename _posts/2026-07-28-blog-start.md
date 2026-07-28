@@ -16,7 +16,8 @@ description: Jekyll(Chirpy) + GitHub Pages 로 만든 블로그의 첫 글입니
 
 ## 글 쓰는 법
 
-`_posts/` 폴더에 `YYYY-MM-DD-제목.md` 형식으로 파일을 만들고, 맨 위에 아래처럼 머리말(front matter)을 넣습니다.
+`_posts/` 폴더에 `YYYY-MM-DD-slug.md` 형식으로 파일을 만들고, 맨 위에 아래처럼 머리말(front matter)을 넣습니다.
+이때 **파일명이 그대로 URL** 이 되므로 영문 소문자와 하이픈으로 짓는 편이 좋습니다.
 
 ```yaml
 ---
